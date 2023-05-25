@@ -1,0 +1,30 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+
+
+const app = express()
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+console.log("starting server");
+app.get('/', function (req, res) {
+  console.log(req.query);
+  console.log("incoming request");
+  res.send('Welcome to our Full Stack JavaScript Application!');
+})
+
+app.get('/help', function (req, res) {
+  console.log(req.query);
+  console.log("incoming request");
+  res.send('<h1>This is the help page</h1');
+})
+
+app.get('/database', function (req, res) {
+  console.log(req.query);
+  console.log("incoming request");
+  res.send('<font color="red">This is the database page</h1');
+})
+
+app.listen(3000)
+
+console.log(`Server is running on port ${PORT}`);
